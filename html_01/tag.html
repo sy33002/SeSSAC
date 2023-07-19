@@ -1,0 +1,61 @@
+<!-- emmet: 키워드로 html 구조 잡아주는 것 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag 종류</title>
+</head>
+<body>
+    <h1>tag 종류</h1>
+    <h2>tag 종류</h2>
+    <h3>tag 종류</h3>
+    <h4>tag 종류</h4>
+    <h5>tag 종류</h5>
+    <p>여기는 본문태그입니다</p>
+    <h3>오늘의 할일 list</h3>
+    <ul type="square">
+        <li>html 공부하기</li>
+        <li>방청소하기</li>
+        <li>빨래하기</li>
+    </ul>
+
+    <h3>아이스 카페라떼 레시피</h3>
+    <!-- ol tag type 속성: I(default),a,A,i,I.. -->
+    <ol type ="I", start = "4">
+        <li><strong>우유</strong>를 존나 넣기</li>
+        <li>얼음 <em>개많이</em></li>
+        <li>에스프레소는 <i>사랑</i>하는 만큼</li>
+        <li>perfect!</li>
+        <li><del>어쩌라고</del></li>
+    </ol>
+    <!-- 목록 태그의 중첩 사용 -->
+    <hr color="pink">
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+        <li>양식</li>
+         <ul>
+            <li>햄버거</li>
+            <li>파스타</li>
+         </ul>
+        <li>한식</li>
+        <ul>
+            <li>김치찌개</li>
+            <li>배곺흐다</li>
+         </ul>
+        <li>일식</li>
+    </ul>
+
+    <hr>
+    <h1>img</h1>
+    <!-- 상대경로, 절대경로 -->
+    <!-- 
+        . : 현재
+        ..: 부모
+        => 상대경로
+     -->
+    <img src="./img/cat.jpg" alt ="고양이" width="500" height="350">
+    <!-- 절대경로: root부터 시작하는 경로 -->
+    <img src="C:\Users\user\Desktop\jihyung\html_01\img\cat.jpg" alt ="고양이" width="500" height="350">
+</body>
+</html>
