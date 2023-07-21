@@ -1,0 +1,21 @@
+/* 어떤 요소 앞에 컨텐츠를 붙일 수 있음 */
+.box::before{
+    content: '택시~';
+    color: blue;
+}
+/* !important: 다 무시하고 우선순위를 맨 위로 */
+.box::after{
+    content:'빨리!!';
+    color: red !important;
+}
+
+/* 속성에 대한 설정: [] */
+[disabled]{
+    background-color: red;   
+}
+[placeholder="이름"]{
+    background-color: orange;
+}
+input:not([placeholder]){
+    background-color: blue;
+}

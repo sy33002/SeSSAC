@@ -1,0 +1,23 @@
+img{
+    transform: skewY(30deg);
+    width: 300px;
+    background-color: aqua;
+    
+}
+.beach1{
+    position: fixed;
+    top: 500px;
+    left: 300px;
+    z-index: 3;
+}
+.beach2{
+    position: fixed;
+    top: 500px;
+    left: 500px;
+    z-index: 2;
+}
+.beach3{
+    position: fixed;
+    top: 500px;
+    left: 700px;
+}
