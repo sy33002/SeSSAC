@@ -1,0 +1,46 @@
+.div1{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}
+/* hover: 요소에 마우스를 올렸을 때 */
+.div1:hover{
+    background-color: hotpink;
+    height: 150px;
+}
+/* active:요소를 마우스로 클릭하고 있을 때 */
+.div1:active{
+    background-color: brown;
+    width: 150px
+}
+/* focus: 요소에 포커스가 됐을 때 */
+input:focus{
+    background-color: blueviolet;
+    color: #ffffff;
+    outline-color: yellowgreen;
+}
+.links > a:hover{
+    background-color: coral;
+}
+/* 방문한 하이퍼링크의 글씨 색을 바꿈 */
+.links > a:visited{
+    color: gray;
+}
+-----------------------------------------------
+/* 요소 상황에 따른 가상 선택자 */
+.zoo > *{
+    background-color: green;
+    color:#ffffff;
+}
+.zoo > li:last-child{
+    background-color: black;
+}
+.zoo> *:first-child{
+    background-color: red;
+}
+.zoo >*:not(div){
+    background-color: pink;
+}
+.zoo > *:nth-child(2n){
+    background-color: aqua;
+}

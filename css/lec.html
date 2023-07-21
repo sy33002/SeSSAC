@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 참조방식</title>
+    <!-- css 참조방식3: 링크
+        가장 추천하는 방식
+        유지보수성이 좋음
+    -->
+    <link rel="stylesheet" href="./lec.css">
+
+    <!-- css 참조방식2: 내장방식 
+        해당 html파일에서만 쓸 수 있음
+        인라인과 마찬가지로 유지보수성이 좋지 않음
+    -->
+    <style>
+        ul{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- css 참조방식1: 인라인방식
+        *직관적, 수정 시 한꺼번에 할 수 없는 불편함
+        *프론트엔드의 암묵적인 룰에 벗어남
+    -->
+    <h1 style="color: blue;">css 사용법을 익혀보자</h1>
+    <ul>
+        <li>원</li>
+        <li>투</li>
+        <li>쓰리</li>
+    </ul>
+
+</body>
+</html>
