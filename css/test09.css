@@ -1,0 +1,14 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+div:hover{
+    transition: 1s;
+    transition-delay: 0.5ms;
+    width: 300px;
+    height: 300px;
+}
