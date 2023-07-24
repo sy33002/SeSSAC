@@ -1,0 +1,49 @@
+.d-inline1{
+    display: inline;
+    background-color: blue;
+}
+
+.d-inline2{
+    display: inline;
+    background-color: red;
+}
+
+.d-block1{
+    display: block;
+    background-color: pink;
+    width: 500px;
+}
+
+/*  블록은 개행을 하되 줄끼리 공간없이 딱 붙어서 개행처리 */
+.d-block2{
+    display:block;
+    background-color: hotpink;
+    width: 400px;
+}
+
+.d-inline-block1{
+    display: inline-block;
+    background-color: red;
+    width: 500px;
+}
+
+.d-inline-block2{
+    display: inline-block;
+    background: linear-gradient(red, white
+    );
+    /* 마진: 상 우 하 좌 순서로 마진을 준 것임 */
+    margin: 20px 40px 20px 40px;
+    /*  = margin: 20px 40px  (단축 프로퍼티) */
+}
+
+.d-none{
+    display: none;
+    background: linear-gradient(pink,white);
+}
+
+.box{
+    visibility: hidden;
+    background-color: coral;
+    width: 100px;
+
+}
