@@ -4,14 +4,12 @@
     font-size: 30px;
     font-weight: bolder;
 }
-
 ul{
     /* ul태그가 기본적으로 가지고 있는 스타일 초기화 */
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 header{
     background-color: rgb(187, 187, 187);
     width: 100%;
@@ -19,25 +17,39 @@ header{
     margin-bottom: 200px;
     padding: 0 20px;
 }
-
 .header1{
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 .header1 .menus{
     display: flex;
-}
-
-.header1 .menus li{
     margin-left: 20px;
+    justify-content: flex-end;
 }
 .header2{
     display: flex;
+    align-items: center;
 }
 .header2 .menus{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
-
+.header3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header3 .menu-left{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.header3 .menu-left ul{
+    display: flex;
+    width: 100%;
+}
+.header3 .menu-right{
+    display: flex;
+    justify-content: flex-end;
+}
