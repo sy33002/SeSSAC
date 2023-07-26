@@ -107,3 +107,80 @@ console.log(temp);
 // 값도 없고, 타입도 지정되지 않은 상태
 let x; // 변수 선언만 했을 때 초기 값으로 undefined 할당
 console.log(x); //undefined 
+
+const fruits=['orange','pineapple','grape','apple'];
+// const fruits=new Array('orange', 'pineapple','grape','apple')
+console.log(fruits);
+
+// js에서는 배열원소의 자료형이 달라도 됨!
+const data = [1, 'asdf', false, null, undefined];
+console.log(data)
+
+// array안에 array 들어갈 수 있음 (중첩 가능) => 2차원 배열
+const korean =[['가', '나', '다'], ['라', '마', '바'], ['사', '아', '자']];
+console.log(korean[0][0]+korean[2][2]);
+
+// 퀴즈 3차원 배열에서 숫자 8 출력
+const nums = [
+    [
+      [1, 2, 3],
+      [4, 5, 6],
+    ],
+    [
+      [7, 8, 9],
+      [10, 11, 12],
+    ],
+  ];
+  console.log(nums[1][0][1]);
+
+  const cat={
+    name:'나비',
+    age: 1,
+    isCute: true,
+    mew: function(){
+        return '냐옹';
+    },
+  };
+  //   object의 속성(key)에 접근하는 방법
+  // (1) 점 표기법
+  console.log(cat.name);
+  console.log(cat.mew());
+//   (2) 대괄호 표기법
+console.log(cat['name']);
+// key가 변수에 저장되어 있을 때 주로 사용
+//   const tempVal = 'name';
+//   console.log(cat[tempVal]);
+  const tempVal2 = cat.mew();
+  console.log(tempVal2);
+  console.log(cat[tempVal2]);
+
+// typeof: 자료형 확인할 수 있는 키워드
+console.log(typeof null);
+// null은 자료형을 가지지 않음, js에서 공식적으로 인정한 언어 자체의 오류 => 특이case
+console.log(typeof fruits);
+
+const me={
+    name: 'jihyung',
+    isLeader: false,
+    job: 'nojab....',
+    interests: ['crossfit', 'dance'],
+};
+// console.log();
+
+// 형변환
+// 성적 평균 구하는 프로그램 만들기
+let mathScore = Number('77');
+let engScore = Number('88');
+let avgScore = (mathScore + engScore) / 2;
+console.log(avgScore);
+// 1. String(): 문자로 형변환
+let str1 = true;
+let str2 = 123;
+let str3 = null;
+console.log(str1, typeof(str1), str2, typeof(str2), str3, typeof(str3));
+console.log(str1. toString());
+let n1 = true;
+let n2 = false;
+console.log(Number(n1), typeof(Number(n1)));
+console.log(Number(n2), typeof(Number(n2)));
+
