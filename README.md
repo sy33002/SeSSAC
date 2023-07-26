@@ -10,3 +10,4 @@
   * 7.20(수) html 기초
   * 7.22(금) css기초
   * 7.24(월) javascript
+  * 7.26(수) javascript
