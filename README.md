@@ -9,5 +9,5 @@
   * 7.18(월) OT및 git연동, 사용법
   * 7.20(수) html 기초
   * 7.22(금) css기초
-  * 7.24(월) javascript
-  * 7.26(수) javascript
+  * 7.24(월) css(flex) + javascript 기초
+  * 7.26(수) javascript 함수, 연산자 등
