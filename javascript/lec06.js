@@ -44,3 +44,88 @@ console.log(arr2.join('+'));
 // 메서드 체이닝
 let word = 'hello';
 console.log(word.replace(word[word.indexOf('e')], 'x'));
+
+
+///////////////////////////////////////////////////////////////
+// 배열에서 반복문 사용하기!
+// - 기본 for 문
+// - for of ans
+// - forEach()매서드
+const arr3 = [1,2,5,6,7];
+const alphabets = ['a', 'b', 'c', 'd']
+
+for (let a = 0; a < arr3.length; a++){
+    console.log(arr3[a]);
+}
+
+for (let alpha of alphabets){
+    console.log(alpha);
+}
+
+alphabets.forEach(function(alpha){
+    //alpha: currentValue를 의미, 반복하고 있는 현재 요소
+    console.log(alpha);
+})
+
+alphabets.forEach(function(alpha, idx, arr){
+    // alpha: currentValue를 의미, 반복하고 있는 현재 요소
+    // idx: currentValue의 인덱스(위치)
+    // arr: forEach를 호출한 배열
+    console.log(alpha, idx, arr);
+})
+console.log('////////////예시/////////////')
+let numbers = [1,2,3,4,5,6];
+var sum1 = 0;
+var sum2 = 0;
+var sum3 = 0;
+for (let i = 0; i<numbers.length;i++){
+    console.log(numbers[i]);
+    sum1 += numbers[i]
+}
+
+for (let num of numbers){
+    sum2 += num;
+    console.log(sum2);
+}
+
+numbers.forEach((num) =>{
+    sum3 += num;
+    console.log(sum3)
+})
+
+// map,filter, find 메서드
+// map(): 배열 내 모든 원소에 대해 연산(익명함수)한 결과를 모아
+// "새로운 배열"로 반환한다.
+// const arr4 = [1,2,3,4,5];
+// let arr4_map = arr4.map(function (e){
+//     return e*2;
+// })
+// console.log(arr4_map);
+
+const arr4 = [1,2,3,4,5];
+let arr4_map = arr4.map((e) => e * 2); //화살표 함수 버전
+console.log(arr4_map);
+
+// filter() : 주어진 함수의 테스트(조건)을 통과하는 요소를 모아
+// (조건을 통과하면 오소 유지, 미통과하면 요소를 버림) => "새로운 배열"로 반환
+// const filterResult = arr4.filter(function(e){
+//     return e > 2;
+// })
+// console.log(filterResult);
+
+const filterResult = arr4.filter((e) => e > 2) // 화살표 함수 버전
+console.log(filterResult);
+
+//find():특정 조건을 만족하는 첫번째 요소(값) 반환
+const findResult = arr4.find((e) => e > 2);
+console.log(findResult);
+
+// 퀴즈
+const words = ['dog', 'cat', 'rabbit', 'apple', 'wow'];
+
+// 1. 글자 수가 3개 초과인 단어만 필터링
+const words_filter = words.filter((e)=> e.length > 3);
+console.log(words_filter);
+// 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링
+const words_filter2 = words.filter((e) => e.includes('a') = 1);
+console.log(words_filter2);
