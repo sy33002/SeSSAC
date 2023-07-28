@@ -127,5 +127,13 @@ const words = ['dog', 'cat', 'rabbit', 'apple', 'wow'];
 const words_filter = words.filter((e)=> e.length > 3);
 console.log(words_filter);
 // 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링
-const words_filter2 = words.filter((e) => e.includes('a') = 1);
+const words_filter2 = words.filter((e) => e.includes('a') == 1);
 console.log(words_filter2);
+
+//for in 반복문
+//객체의 key를 반복할 수 있는 구문
+
+const me = {name: 'sean', gender: 'f', hobby: 'movie'};
+for (let k in me){
+    console.log(k, me[k]); // 대괄호 표기법으로만 (점표기법x) value접근 가능
+}
