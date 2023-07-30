@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>실습_간단 계산기 만들기</title>
+    <script defer src = './test01.js'></script>
 </head>
 <body>
-    <h5>방명록입니다.</h5>
+    <h3>방명록입니다.</h3>
     <div>
-        <p>작성자</p>
-        <input type="text">
+        <p id = 'person'></p>
+        <input type="text" id = 'person_text'>
     </div>
     <div>
-        <p>내용</p>
-        <input type="text">
+        <p id = 'content'></p>
+        <input type="text" id = 'content_text'>
     </div>
-    <p>작성</p>
-    <table border="1" cellpadding = '10' cellsapcing = '0'>
-        <tr>번호</tr>
-
+    <p id = 'btn'>작성</p>
+    <table border="1px" cellpadding = '10px'>
+        <tr>
+            <td id = 'num'>번호</td>
+            <td id = 'person_res'>작성자</td>
+            <td id = 'content_res'>내용</td>
+            <td id = 'date'>작성일</td>
+        </tr>
     </table>
 </body>
 </html>
