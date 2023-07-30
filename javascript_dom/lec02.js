@@ -28,7 +28,7 @@ console.log(document.getElementById('pooh').id); // pooh.id
 console.log(document.getElementById('naver').href); // naver.id
 
 // 참고! . 연산자로 속성에 접근하고 = 할당 연산자로 속성 값 변경 가능
-document.getElementById('naver').href = '#';
+document.getElementById('naver').href = 'http://www.yahoo.co.kr';
 
 // CSS 지정
 const h1 = document.querySelector('h1');
@@ -97,10 +97,10 @@ div1.appendChild(p);// = container.append(p);
 
 const p2 = document.createElement('p'); // 요소 생성
 const p3 = document.createElement('p'); // 요소 생성
-p2.innerHTML = 'p2';
-p3.innerHTML = 'p3';
+p2.innerHTML = '----p2----';
+p3.innerHTML = '----p3----';
 p2.classList.add('p-2');
-p2.classList.add('p-3');
+p3.classList.add('p-3');
 
 container.append(p2, p3); // 여러 개 추가도 가능!
 

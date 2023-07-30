@@ -61,7 +61,7 @@ const input = document.querySelector('input');
 // ex. keydown 이벤트 발생 -> 이벤트 객체는 (키 코드값, 어떤 키가 눌렸는지에 대한 정보) 정보를 가짐
 btn.addEventListener('click', function (event) {
     // event 객체
-    console.log(event); // 이베트 객체에 대한 정보 출력
+    // console.log(event); // 이베트 객체에 대한 정보 출력
   });
 
 input.addEventListener('keydown', function(e){

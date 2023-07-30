@@ -41,6 +41,7 @@ console.log(document.querySelectorAll('[name="id"]'));
 // 배열과 달리 사용 가능한 메서드가 제한
 
 //NodeList -> forEach() 반복문 사용가능
+console.log('----------유사 배열----------')
 document.querySelectorAll('.pink').forEach((elem) => console.log(elem));
 //HTMLCollection -> 반복문 사용 불가능
 // 반복을 해야된다면 Array변경(Array.from())
