@@ -1,0 +1,56 @@
+.header {
+    background-color: palegoldenrod;
+    height: 120px;
+  }
+  
+  .main {
+    background-color: aqua;
+    display: flex;
+  }
+
+  .section {
+    background-color: cornflowerblue;
+    width: 80%;
+  }
+
+  .aside {
+    background-color: hotpink;
+    width: 80%;
+  }
+
+  .footer {
+    background-color: chartreuse;
+  }
+
+@media (max-width: 480px){
+    /* viewport width가 480px 이하일 때*/
+    .main{
+        flex-direction: column-reverse;
+        /* 메인의 플렉스 방향이 열로 바뀜 */
+        /* reverse: aside가 위로 이동 */
+    }
+    .aside{
+        width: 100%;
+    }
+    /* .aside{
+        display: none;
+        /* aside영역이 사라짐 */
+    .header {
+        height: 20px;
+        /* header 영역이 작아짐 */
+    }
+}
+
+@media screen and (orientation: landscape){
+    /* landscape: 가로 모드일 때 */
+    body {
+        background-color: bisque;
+    }
+}
+
+@media screen and (orientation: portrait){
+    /* portrait: 세로 모드일 때 */
+    body {
+        background-color: tomato;
+    }
+}
