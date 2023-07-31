@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Icon</title>
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .heart_icon {
+          font-size: 100px;
+          color: red;
+          cursor: pointer;
+        }
+        .bi-train-front{
+            font-size: 100px;
+        }
+      </style>
+</head>
+<body>
+    <h1>Bootstrap Icon</h1>
+    <i class="bi bi-train-front" style="color: blue;"></i>
+    <h2>svg 태그로 적용하는 방법</h2>
+    <!-- svg: 크기 조정이 가능한 백터 그래픽, w/h조정 가능, fill 색상변경 가능
+        - svg 태그에 width, height 속성을 1em으로 설정하면 부모 요소 크기에 맞게 변경
+    -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+        width="50" 
+        height="50" 
+        fill="royalblue" 
+        class="bi bi-radioactive" viewBox="0 0 16 16">
+        <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z"/>
+        <path d="M9.653 5.496A2.986 2.986 0 0 0 8 5c-.61 0-1.179.183-1.653.496L4.694 2.992A5.972 5.972 0 0 1 8 2c1.222 0 2.358.365 3.306.992L9.653 5.496Zm1.342 2.324a2.986 2.986 0 0 1-.884 2.312 3.01 3.01 0 0 1-.769.552l1.342 2.683c.57-.286 1.09-.66 1.538-1.103a5.986 5.986 0 0 0 1.767-4.624l-2.994.18Zm-5.679 5.548 1.342-2.684A3 3 0 0 1 5.005 7.82l-2.994-.18a6 6 0 0 0 3.306 5.728ZM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>
+    </svg>
+    <h3>icon사용 예시</h3>
+
+    <i class="bi bi-heart heart_icon"></i>
+    <!-- <i class="bi bi-heart-fill"></i> -->
+    <script>
+        const heartIcon = document.querySelector('.heart_icon');
+        heartIcon.addEventListener('click', ()=>{
+            heartIcon.classList.toggle('bi-heart'); //toggle: 있으면 제거, 없으면 추가
+            heartIcon.classList.toggle('bi-heart-fill'); //toggle: 없으면 추가, 있으면 제거
+        });
+    </script>
+</body>
+</html>

@@ -16,17 +16,14 @@ img{
 }
 
 @media (max-width: 768px) {
-    /* .header{
+    .header{
         flex-direction: column;
         align-items: center;
-    } */
+    }
     .menus{
         background-color: rgb(205, 233, 242);
         flex-direction: column;
         align-items: center;
-    }
-    .menu{
-        background-color: rgb(205, 233, 242);
-
+        width: 100%;
     }
 }
