@@ -81,39 +81,145 @@ function appendJS() {
     // 3. li 태그의 텍스트로 '마지막 자식으로 추가된 js' 추가
     // 4. color 클래스를 갖는 요소에 "맨 마지막 자식"으로 li 요소 추가
     // 힌트: https://developer.mozilla.org/en-US/docs/Web/API/Element/append
-    const color = document.querySelector('.colors');
+    const colors = document.querySelector('.colors');
     const li = document.createElement('li');
     li.innerText = '마지막 자식으로 추가된 js 추가';
-    color.append(li);
+    colors.append(li);
 }
-  
   function appendJquery() {
-    $('color').create-element('li');
-    $('li').text = '마지막 자식으로 추가된 jquery추가';
-    $('color').append = 'li';
+    $('.colors').append("<li>마지막 자식으로 추가된 jquery</li>");
   }
   
   // prepend()
   function prependJS() {
-    // 1. color 클래스 갖는 요소 선택하고
-    // 2. li 태그 요소를 생성한 후
-    // 3. li 태그의 텍스트로 '첫 자식으로 추가된 js' 추가
-    // 4. color 클래스를 갖는 요소에 "가장 첫 자식"으로 li 요소 추가
-    // 힌트: https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend
-    const color = document.querySelector('.colors');
+    //js 버전
+    const colors = document.querySelector('.colors');
     const li = document.createElement('li');
     li.innerText = '첫 자식으로 추가된 js 추가'
-    color.prepend(li);
+    colors.prepend(li);
 }
+  function prependJquery() {
+    // jquery 버전
+    $('.colors').prepend('<li>첫 자식으로 추가된 jquery</li>');
+  }
+
+// before()
+function beforeJS() {
+    //js버전
+    const green = document.querySelector('.green');
+    const li = document.createElement('li');
+    li.innerText = 'green 클래스를 갖는 요소의 이전 형제 요소로 추가(js)';
+    green.before(li);
+
+  }
+  function beforeJquery() {
+    //jquery버전
+    $('.green').before('<li>green 클래스를 갖는 요소의 이전 형제 요소로 추가(js)</li>');
+  }
   
-  function prependJquery() {}
+  // after()
+  function afterJS() {
+    //js버전
+    const green = document.querySelector('.green');
+    const li = document.createElement('li');
+    li.innerText = 'green 클래스를 갖는 요소의 다음 형제 요소로 추가(jquery)';
+    green.after(li);
+  }
+  function afterJquery() {
+    //jquery버전
+    $('.green').after('<li>green 클래스를 갖는 요소의 다음 형제 요소로 추가(jquery)</li>');
+  }
 
+// 요소 삭제하기
+// remove()
+function removeJS() {
+    // js 버전
+    const li2 = document.querySelector('#li2');
+    li2.remove();
+  }
+  function removeJquery() {
+    // jquery버전
+    $('#li2').remove();
+  }
+  
+  // empty()
+  function emptyJS() {
+    // js 버전
+    const num = document.querySelector('ul.nums');
+    num.innerHTML = '';
+  }
+//   function emptyJquery() {
+//     // jquery버전
+//     ${'ul.nums'}.empty();
+//   }
 
+// 요소 탐색하기
+function findParent() {
+  // child2 클래스 갖는 요소의 부모 요소
+  // js버전
+  console.log(document.querySelector('.child2').parentElement);
+  // jquery버전
+  console.log($('.child2').parent());
+}
 
+function findParents() {
+  // JS 없습니다! 패스~~
+  console.log($('.child2').parents());
+}
 
+function findNext() {
+  // child2 클래스 갖는 요소의 다음 형제 요소
+  // js버전
+  console.log(document.querySelector('.child2').nextElementSibling);
+  // jquery버전
+  console.log($('.child2').next());
+}
 
+function findPrev() {
+  // child2 클래스 갖는 요소의 이전 형제 요소
+  // js버전
+  console.log(document.querySelector('.child2').previousElementSibling);
+  // jquery버전
+  console.log($('.child2').prev());
+}
 
+function findChildren() {
+  // parent 클래스 갖는 요소의 자식 요소
+  // js버전
+  console.log(document.querySelector('.parent').children);
+  // jquery버전
+  console.log($('.child2').children());
+}
 
+// 클래스 조작하기
+function addClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 추가
+  // js버전
+  document.querySelector('#hi').classList.add('fs-50');
+  // jquery버전
+  $('#hi').addClass('fs-50');
+}
+
+function removeClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 삭제
+  document.querySelector('#hi').classList.remove('fs-50');
+  // jquery버전
+  $('#hi').removeClass('fs-50');
+}
+
+function hasClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 포함 여부 확인
+  console.log( document.querySelector('#hi').classList.contains('fs-50'));
+  // jquery버전
+  $('#hi').hasClass('fs-50');
+}
+
+function toggleClass() {
+  // hi 아이디 갖는 요소 선택하여 "bg-pink" 클래스 토글 (있으면 삭제, 없으면 추가)
+  document.querySelector('#hi').classList.toggle('bg-pink');
+  // jquery버전
+  $('#hi').toggleClass('bg-pink');
+}
 
 
 
