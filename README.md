@@ -11,4 +11,6 @@
   * 7.22(금) css기초
   * 7.24(월) css(flex) + javascript 기초
   * 7.26(수) javascript 함수, 연산자 등
-  * 7.28(금) javascript 반복문,
+  * 7.28(금) javascript 반복문
+  * 7.31(월) bootstrap 개념, 기초
+  * 8.02(수) jquery 기초
