@@ -98,10 +98,10 @@ function appendJS() {
     li.innerText = '첫 자식으로 추가된 js 추가'
     colors.prepend(li);
 }
-  function prependJquery() {
-    // jquery 버전
-    $('.colors').prepend('<li>첫 자식으로 추가된 jquery</li>');
-  }
+function prependJquery() {
+  // jquery 버전
+  $('.colors').prepend('<li>첫 자식으로 추가된 jquery</li>');
+}
 
 // before()
 function beforeJS() {
@@ -143,15 +143,15 @@ function removeJS() {
   }
   
   // empty()
-  function emptyJS() {
-    // js 버전
-    const num = document.querySelector('ul.nums');
-    num.innerHTML = '';
+  // function emptyJS() {
+  //   // js 버전
+  //   const num = document.querySelector('ul.nums');
+  //   num.innerHTML = '';
+  // }
+  function emptyJquery() {
+    // jquery버전
+    ${'ul.nums'}.empty();
   }
-//   function emptyJquery() {
-//     // jquery버전
-//     ${'ul.nums'}.empty();
-//   }
 
 // 요소 탐색하기
 function findParent() {

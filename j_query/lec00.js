@@ -9,13 +9,13 @@ function submitJs(){
     //div내용 변경
     div1.innerText = '반갑습니다!';
     //div border style 추가
-    div1.setAttribute('style', 'border = 2px solid red');
+    div1.setAttribute('style', 'border: 2px solid red');
 }
 
 function submitJquery(){
     const div1 = $('#div1');
-    $('#div1').text('안녕히계세요~');
-    $('#div1').css('border', '2px dotted blue');
+    div1.text('안녕히계세요~');
+    div1.css('border', '2px dotted blue');
 }
 
 const colorsJs = document.querySelectorAll('.color');
