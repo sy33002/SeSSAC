@@ -1,0 +1,55 @@
+.myhead{
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+body{
+    font-family: 'IBM Plex Sans KR';
+    padding-top: 0px;
+}
+body.scrolled .scroll-header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+div{
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+.first {
+    padding-top: 100px;
+}
+#carouselExample {
+  position: relative;
+}
+.parent {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.child2 {
+  width: 50%;
+}
+.line {
+    background-color: rgb(41, 41, 96);;
+    width: 100%;
+    color: rgb(41, 41, 96);;
+    height: 1.3px;
+}
+.pointname {
+    font-size: 20px;
+    color:rgb(41, 41, 96);;
+    font-weight: bolder;
+}
+.parent1{
+    display: flex;
+    justify-content: space-between;
+}
+.point {
+    font-size: 30px;
+}
+svg{
+    color: rgb(41, 41, 96);;
+}
