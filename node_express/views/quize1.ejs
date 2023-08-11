@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./includes/head', {title: '로그인페이지'})%>
+    <!-- <title><%#title2%></title> -->
+  </head>
+  <body>
     <h3>login please.</h3>
-    <p>아이디: </p>
-    <input type="text">
-    <br/>
-    <p>비밀번호: </p>
-    <input type="text">
-    <br/>
-    <br/>
+    <p>아이디:</p>
+    <input type="text" />
+    <br />
+    <p>비밀번호:</p>
+    <input type="text" />
+    <br />
+    <br />
     <button><a href="/logincomplete">완료</a></button>
-</body>
+  </body>
 </html>
