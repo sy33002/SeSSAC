@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script>
+        function bgColorChange (color) {
+            return new Promise(function(resolve, reject){
+                setTimeout(function (){
+                    let body = document.querySelector('body');
+                    body.style.backgroundColor = color;
+                    resolve();
+                }, 1000);
+            });
+        }
+        bgColorChange('red')
+        .then(function() {
+            return bgColorChange('orange')})
+        .then(function() {
+            return bgColorChange('yellow')})
+        .then(function() {
+            return bgColorChange('green')})
+        .then(function() {
+            return bgColorChange('blue')})
+    </script>
+</body>
+</html>
