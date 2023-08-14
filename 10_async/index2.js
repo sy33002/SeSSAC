@@ -20,13 +20,13 @@
 //   }
 
 // // 2. promise를 사용(소비)하는 코드
-// // promise1(5 > 3)
-// // 	.then(function(result) {
-// //     console.log(result);
-// // })
-// // 	.catch(function(error) {
-// // 	console.log(error);
-// // });
+promise1(5 > 3)
+	.then(function(result) {
+    console.log(result);
+})
+	.catch(function(error) {
+	console.log(error);
+});
 
 // // 화살표 함수 버전
 // promise1(5 > 3)
