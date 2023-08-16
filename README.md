@@ -18,3 +18,4 @@
   * 8.07(월) javascript를 이용한 백엔드 기초
   * 8.09(수) node.js 기초(모듈,npm)
   * 8.11(금) node.js 기초(미들웨어)
+  * 8.14(월) node.js의 동기처리, form 기초(get/post)
