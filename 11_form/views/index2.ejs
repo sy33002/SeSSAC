@@ -9,14 +9,14 @@
     <form action="/register" method="post">
     <span>이름</span>
     <input type="text" name="name" required>
-    <fieldset method="post">
+    <fieldset>
         <legend>성별</legend>
         <input type="radio" name="gender" value="female">
         <label for="female">여자</label>
         <input type="radio" name="gender" value="male">
         <label for="male">남자</label>
     </fieldset>
-    <fieldset method="post">
+    <fieldset>
         <legend>생년월일</legend>
         <select name="birth_year" required>
             <% for (let i = 1990; i<= 2023; i++) {%>
@@ -37,7 +37,7 @@
         </select> 
         <span>일</span>
     </fieldset>
-    <fieldset method="post">
+    <fieldset>
         <legend>관심사</legend>
         <input type="checkbox" name="interest" value="travel">
             <label for="traval">여행</label>
