@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
+
 </head>
 <body>
     <p>고객님의 이름은 <%= userInfo.name%>이군요!</p>
     <p>고객님의 셩별은 <%= userInfo.gender%>이군요!</p>
-    <p>고객님의 생년월일은 <%= userInfo.birth_year%>년 <%= userInfo.birth_month%>월 <%= userInfo.birth_day%>일이군요!</p>
-    <p>고객님의 취미는 <%= userInfo.interest%>이군요!</p>
+    <p>고객님의 생년월일은 <%= userInfo.birth_year%>년 <%= userInfo.month%>월 <%= userInfo.day%>일이군요!</p>
+    <% if (userInfo.interest) {%>
+        <p>고객님의 취미는 <%= userInfo.interest %>이군요!</p>
+    <%}%>
+    <p>고객님의 좋아하는 색상은  <div style="width: 100px; height: 100px; background-color:<%= userInfo.fav_color %>;"></div>이군요!</p>
+    <p>고객님의 좋아하는 숫자는 <%= userInfo.fav_num%>이군요!</p>
 </body>
 </html>

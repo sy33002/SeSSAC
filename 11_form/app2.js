@@ -9,16 +9,13 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.render('index2');
+    res.render('index2', {userInfo: req.query});
 });
 
-app.get('/register', (req, res) => {
-    res.render('register', {userInfo: req.query});
+app.post('/register', (req, res) => {
+    res.render('register', {userInfo: req.body});
 });
-
+ 
 app.listen(PORT, () => {
     console.log(`${PORT} is open!`);
 });
-
-
-

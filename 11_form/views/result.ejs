@@ -17,5 +17,21 @@
         <span><%= userInfo.id%></span>님 환영합니다!
     </div>
     <div>비밀번호는<span><%= userInfo.pw%></span>이군요?</div>
+    <% if (userInfo.email) { %>
+        <div>이메일은 <span><%= userInfo.email %></span>이시네요!</div>
+    <% } else { %>
+        <div>이메일 입력값이 없습니다.</div>
+    <% } %>
+    <% if (userInfo.grade) { %>
+        <div><span><%= userInfo.grade %></span>학년이군요!</div>
+    <% } else { %>
+        <div>학년 입력값이 없습니다.</div>
+    <% } %>
+    <!-- 
+        문제: get요청 폼에서  grade항목이 필수값이 아님
+             빈칸으로 노출되는 상황이 생김
+        해결: 1. get 요청 결과, post요청 결과 ejs를 각각 만든다 => 자원낭비
+              2. ejs문법으로 "조건문"을 사용해서 데이터가 존재할 때만 해당 정보를 보여줌
+     -->
 </body>
 </html>

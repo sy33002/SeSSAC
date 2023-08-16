@@ -6,38 +6,38 @@
     <title>실습_get으로 정보 받기</title>
 </head>
 <body>
-    <form action="/register" method="get">
+    <form action="/register" method="post">
     <span>이름</span>
-    <input type="text" name="name">
-    <fieldset action="/" method="get">
+    <input type="text" name="name" required>
+    <fieldset method="post">
         <legend>성별</legend>
         <input type="radio" name="gender" value="female">
         <label for="female">여자</label>
         <input type="radio" name="gender" value="male">
         <label for="male">남자</label>
     </fieldset>
-    <fieldset action="/" method="get">
+    <fieldset method="post">
         <legend>생년월일</legend>
-        <select name="birth_year" id="">
+        <select name="birth_year" required>
             <% for (let i = 1990; i<= 2023; i++) {%>
             <option value="<%= i%>"><%= i%></option>
             <%}%>
             </select>
             <span>년</span>
-        <select name="month" id="">
+        <select name="month" required>
             <% for (let i = 1; i<= 12; i++) {%>
                 <option value="<%= i%>"><%= i%></option>
             <%}%>
         </select>         
         <span>월</span>
-        <select name="day" id="">
+        <select name="day" required>
             <% for (let i = 1; i<= 31; i++) {%>
                 <option value="<%= i%>"><%= i%></option>
             <%}%>
         </select> 
         <span>일</span>
     </fieldset>
-    <fieldset action="/" method="get">
+    <fieldset method="post">
         <legend>관심사</legend>
         <input type="checkbox" name="interest" value="travel">
             <label for="traval">여행</label>
@@ -49,7 +49,9 @@
     <fieldset>
         <legend>선택</legend>
         <span> 좋아하는 색상</span>
-        <input type="color" name="fav_color" value="#111">
+        <input type="color" name="fav_color"><br/>
+        <span>좋아하는 숫자</span>
+        <input type="number" name="fav_num">
     </fieldset>
     <button>회원가입</button>
     </form>
