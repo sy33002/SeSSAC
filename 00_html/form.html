@@ -19,15 +19,15 @@
         <br>
         
         <!-- 웹 접근성에 조금 더 적합, 
-            이메일 쿠키가 저절로 입력되는 등
-            사용자가 조금 더 편리하게 이용할 수 있다.
+             이메일 쿠키가 저절로 입력되는 등
+             사용자가 조금 더 편리하게 이용할 수 있다.
         -->
         <label for="email">이메일</label>
         <input type="email" id="email" placeholder="ex@mail.com">
         <br>
         <!-- textarea: 여러줄을 입력받는 요소
-            cols, rows: 가로, 세로 길이를 나타냄
-            마우스로 textarea 크기 조절 가능
+             cols, rows: 가로, 세로 길이를 나타냄
+             마우스로 textarea 크기 조절 가능
         -->
         <textarea cols ="30" rows ="10" placeholder="문의사항입력"></textarea>
         <br>
@@ -58,6 +58,12 @@
         <input type="radio" name="gender" value="h" id = "genderh"><label for="genderh">반반</label>
          <br>
          <!-- button버튼: 단순 버튼/ submit: 폼을 제출한다는 의미가 있음 -->
+         <!-- button type, input type
+                - button: 클릭 가능한 버튼
+                    - 폼 태그 바깥에 존재할 때 기본 값
+                - submit: 폼을 제출하는 버튼
+                    - 폼 태그 안에 있을 대 기본 값
+        -->
          <input type="button" value="버튼1">
          <button type="button">버튼2</button>
          <br>
