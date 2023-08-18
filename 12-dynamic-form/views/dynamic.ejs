@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic form</title>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>dynamic form!</h1>
+    <form action="" name="register">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" value="jihyuki2"/>
+        <br/>
+        성별
+        <input type="radio" name="gender" value="m" id="male" />
+        <label for="male">남</label>
+        <input type="radio" name="gender" value="f" id="female" checked />
+        <label for="female">여</label>
+        <br/>
+        <br/>
+    
+        <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
+        <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
+    </form>
+    <!-- 동적폼 전송 결과를 보여줄 곳 -->
+    <div class="result"></div>
+    
+    <script>
+        // frontend javascript
+        const resultBox = document.querySelector('div.result'); //전역변수로 div를 선택함
+
+        function ajaxGet(){
+            console.log('ajaxGet 함수 호출!');
+
+            const form = document.forms['register'];
+            console.dir(form.name);
+            console.dir(form.gender);
+            console.dir(form.name.value);
+            console.dir(form.gender.value);
+            
+            // 요청에 실어서 보낼 데이터 변수(서버에서 받은 정보)
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+            };
+
+            // Ajax로 서버에 Get요청 보내기
+            $.ajax({
+                type: 'get', // 요청의 종류 (=form의 method 속성)
+                url: '/ajax', // 요청의 경로 (=form의 action 속성)
+                data: data, // 요청에 실어보낼 데이터(서버가 받게 될 데이터)
+                success: function(data){
+                    // 요청이 성공적으로 수행되었을 때 실행할 함수
+                    console.log(data);
+                    resultBox.textContent = `Get/ ajax 요청 완료! ${data.name}님은 ${data.gender}이시죠?`;//jquery를 통해 div의 텍스트 바꿈
+                },
+            });
+        }
+        function ajaxPost(){
+            console.log('ajaxPost 함수 호출!');
+
+            const form = document.forms['register'];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+            }
+            $.ajax({
+                type: 'post',
+                url:'/ajax',
+                data: data,
+                success: function(data){
+                    console.log(data);
+                    resultBox.textContent = `POST/ ajax 요청 완료! ${data.name}님은 ${data.gender}이시죠?`;
+                },
+            });
+        }
+    </script>
+</body>
+</html>
