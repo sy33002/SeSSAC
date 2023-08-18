@@ -18,6 +18,7 @@ app.get('/axios', (req, res) => {
 });
 
 app.post('/post', (req, res) => {
+    console.log(req.body);
     res.send(req.body);
 });
 

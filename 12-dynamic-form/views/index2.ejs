@@ -60,6 +60,7 @@
     <br />
     <div class="res" style="color: red"></div>
     <br/>
+    <!-----------------실습2------------------ -->
     <h1>실습2. axios post 로그인</h1>
     <form action="" name="login">
       <span>아이디</span>
@@ -72,6 +73,8 @@
     <script>
       const resultBox = document.querySelector('div.res'); 
       const resultBox2 = document.querySelector('div.res2');
+      
+      const userid = 
       async function axiosGet() {
         const form = document.forms['register'];
           const userData = {
@@ -113,6 +116,12 @@
             data: data,
           });
           const { id, pw } = res.data;
+          if (id === 'banana' && pw == '4321')
+          {
+            resultBox2.innerHTML = `<div style="color: blue;">${id}님 로그인에 성공하셨습니다!</div>`;
+          } else {
+            resultBox2.innerHTML = `<div style="color: red;">${id}님 로그인에 실패하셨습니다ㅠㅠ</div>`;
+          }
           } catch (error) {
           console.log('Error!', error)
         }
