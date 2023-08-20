@@ -67,7 +67,7 @@
             console.log('ajaxGet 함수 호출!');
 
             const form = document.forms['register'];
-            console.dir(form.name);
+            console.dir(form);
             console.dir(form.gender);
             console.dir(form.name.value);
             console.dir(form.gender.value);
@@ -121,10 +121,10 @@
                 gender: form.gender.value,
             };
             try{
-            const response = await axios({
+                const response = await axios({
                 method: 'get', // 요청 방식 (= form method 속성)
                 url: '/axios', // 요청 경로 (= form action 속성)
-                params: data, // 서버로 보낼 데이터 (query string)
+                parififams: data, // 서버로 보낼 데이터 (query string)
 
                 // url에 params 키를 직접 정의해서 요청해서 보내는 버전
                 // method: 'get',
