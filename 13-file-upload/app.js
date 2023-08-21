@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 const PORT = 8000;
 
+// body-parser 내장 라이브버리: 미들웨어
+// 단점: 멀티파트 데이터를 처리하지 못함! (이미지, 동영상, 파일 등)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.set('view engine', 'ejs');
+app.use('/views', express.static(__dirname + '/views'));
+app.use('/uploads', express.static(__dirname + '/uploads')); //axios동적 파일 업로드를 위해서
+
 // multer 관련 설정
 const multer = require('multer');
 const path = require('path'); // 경로에 관한 내장 모듈
@@ -28,13 +37,7 @@ const uploadDetail = multer({
     limits: {fileSize: 5* 1024 * 1024}, // 5MB를 의미
 });
 
-app.set('view engine', 'ejs');
-app.use('/views', express.static(__dirname + '/views'));
 
-// body-parser 내장 라이브버리: 미들웨어
-// 단점: 멀티파트 데이터를 처리하지 못함! (이미지, 동영상, 파일 등)
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -78,6 +81,7 @@ app.post('/upload/array', uploadDetail.array('userFiles'), (req,res)  => {
 // fields() 매개 변수로 input 태그의 name을 각각 넣기
 app.post(
 	'/upload/fields',
+	// uploadDetail.array('userFiles'): 클라이언트 요청이 들어오면 multer 설정(uploadDetail 변수)에 따라 파일을 업로드한 후, req.files 객체 생성
 	uploadDetail.fields([{ name: 'userFile1' }, { name: 'userFile2' }]),
 	(req, res) => {
 	  console.log(req.files); // { userFile1: [ {파일_정보} ], userFile2: [ {파일_정보} ]} 객체 안에 배열 형태로 각 파일 정보
@@ -86,7 +90,11 @@ app.post(
 	}
   );
 
-// uploadDetail.array('userFiles'): 클라이언트 요청이 들어오면 multer 설정(uploadDetail 변수)에 따라 파일을 업로드한 후, req.files 객체 생성
+app.post('/dynamicFile', uploadDetail.single('dynamicUserfile'), (req, res) => {
+	console.log(req.file);
+	res.send(req.file);
+});
+
 app.listen(PORT, function () {
   console.log(`${PORT} is opening!`);
 });

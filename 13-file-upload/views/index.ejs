@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1>파일 업로드</h1>
@@ -35,5 +37,42 @@
       <input type="text" name="title2" /><br /><br />
       <button type="submit">업로드</button>
     </form>
+
+    <h2>동적 파일 업로드</h2>
+    <input type="file" name="dynamicUserfile" id="dynamic-file"><br/>
+    <button type="button" onclick="fileUpload()">업로드</button><br/>
+    <!-- 업로드할 이미지를 보여줄 img 태그 요소 -->
+    <img src="" alt="" width="200" />
+    
+    <script>
+      function fileUpload() {
+        console.log('동적파일 업로드');
+        // formData() : 자바스크립트의 내장 메소드
+        // js만으로 파일데이터를 서버로 전송해야하는 케이스 (폼 태그 없이!)
+        // formData() 객체를 활용하면 쉽게 전송 가능!
+        const formData = new FormData();
+        const file = document.querySelector('#dynamic-file');
+        // console.dir(file);
+        // console.dir(file.files); // 업로드한 파일 객체
+        // console.dir(file.files[0]); // 업로드한 첫 파일
+
+        //FormData 메소드의 append(key, value) 메소드
+        formData.append('dynamicUserfile', file.files[0]);
+        axios({
+          method: 'post',
+          url: '/dynamicFile',
+          data: formData,
+          header: {
+            'Content-Type': 'multipart/form-data' // enctype="multipart/form-data"
+          },
+        })
+        .then ((res) => {
+          console.log('res 입니다.')
+          const {data} = res;
+          console.log(data);
+          document.querySelector('img').src = '/' + data.path;
+        });
+      };
+    </script>
   </body>
 </html>
