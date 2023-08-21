@@ -16,12 +16,12 @@
     <h1>dynamic form!</h1>
     <form action="" name="register">
         <label for="name">이름</label>
-        <input type="text" id="name" name="name" value="jihyuki2"/>
+        <input type="text" id="name" name="name" required/>
         <br/>
         성별
-        <input type="radio" name="gender" value="m" id="male" />
+        <input type="radio" name="gender" value="m" id="male" required/>
         <label for="male">남</label>
-        <input type="radio" name="gender" value="f" id="female" checked />
+        <input type="radio" name="gender" value="f" id="female"/>
         <label for="female">여</label>
         <br/>
         <br/>
@@ -29,14 +29,15 @@
         <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
         <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
         <br/>
-        <button type="button" onclick="axiosGet();">Axios Get 제출</button>
+        <button type="button" onclick="axiosGet();">Axios Get 제출 (+ form validation)</button>
         <button type="button" onclick="axiosPost();">Axios POST 제출</button>
         <br/>
         <button type="button" onclick="fetchGet();">fetch Get 제출</button>
         <button type="button" onclick="fetchPost();">fetch POST 제출</button>
+        <button type="button" onclick="changeImg();">랜덤</button>
+        <div class="result"></div>
         <br/>
         <h1>OPEN API를 이용해 고양이 사진 랜덤 돌리기!</h1>
-        <button type="button" onclick="changeImg();">랜덤</button>
         <br/>
         <img
             width="500"
@@ -46,7 +47,6 @@
         />
     </form>
     <!-- 동적폼 전송 결과를 보여줄 곳 -->
-    <div class="result"></div>
     
     <script>
         // frontend javascript
@@ -120,23 +120,31 @@
                 name: form.name.value,
                 gender: form.gender.value,
             };
+            // checkValidity()
+            console.log(form.name.checkValidity());
+            console.log(form.gender[0].checkValidity());
+            console.log(form.gender[1].checkValidity());
             try{
-                const response = await axios({
-                method: 'get', // 요청 방식 (= form method 속성)
-                url: '/axios', // 요청 경로 (= form action 속성)
-                parififams: data, // 서버로 보낼 데이터 (query string)
-
-                // url에 params 키를 직접 정의해서 요청해서 보내는 버전
-                // method: 'get',
-                // url: `/axios?name=${form.name.value}&gender=${form.gender.value}`,
-            });
-            console.log(response);
-            const {name, gender} = response.data; // 객체 구조분해 할당
-            resultBox.textContent = `GET /axios 요청 완료!! ${name}님은 ${gender}이시군요!`;
+                // 폼 유효성 검사
+                // name input에 입력된 값이 없다면 '이름을 입력해주세요!' 출력
+                // gender radio btn 을 선택하지 않았다면, '성별을 선택해주세요!' 출력
+                // 둘 다 입력이 잘 되었다면, axios로 back에 요청 날리기
+                if (!form.name.checkValidity()){
+                    resultBox.textContent = `이름을 입력해주세요!`;
+                } else if (!form.gender[0].checkValidity()){
+                    resultBox.textContent = `성별을 선택해주세요!`;
+                } else {
+                    const response = await axios({
+                    method: 'get', // 요청 방식 (= form method 속성)
+                    url: '/axios', // 요청 경로 (= form action 속성)
+                    params: data, // 서버로 보낼 데이터 (query string)
+                    });
+                    const {name, gender} = response.data; // 객체 구조분해 할당
+                    resultBox.textContent = `GET /axios 요청 완료!! ${name}님은 ${gender}이시군요!`;
+                }
             } catch (error) {
                 console.log('Error!', error);
                 resultBox.textContent = `알 수 없는 에러 발생!`;
-
             };               
         }
         async function axiosPost() {
@@ -211,3 +219,15 @@
     </script>
 </body>
 </html>
+
+<!-- 일반 폼 전송 vs 동적 폼 전송 -->
+<!-- 
+    일반 폼 전송
+    - form 태그 안에 button type = submit
+    - 제출 되었을 때 다른 페이지로 이동
+
+    동적 폼 전송
+    - form 태그 필요 없음, button type = button
+    - 제출 되었을 때 현재 경로에서 요청에 대한 결과를 받음
+    (물론 자바스크립트 코드를 이용해 결과를 받은 후에 다른 페이지로 이동 가능)
+ -->
