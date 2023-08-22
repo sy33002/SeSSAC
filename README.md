@@ -20,4 +20,5 @@
   * 8.11(금) node.js 기초(미들웨어)
   * 8.14(월) node.js의 동기처리, form 기초(get/post)
   * 8.16(수) ndoe.js form(post심화, form validation)
-  * 8.18(금) node.j (ajax, axios, fetch)와 open api
+  * 8.18(금) node.js (ajax, axios, fetch)와 open api
+  * 8.20(월) node.js (checkValiad, multer - file업로드)
