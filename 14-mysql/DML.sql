@@ -164,3 +164,73 @@ select * from customer where addr like '대한민국%' and birth >= '2000-01-01'
 select * from customer where addr like '미국%' or addr like '영국%';
 -- 휴대폰 번호 마지막 자리가 4가 아닌 고객 검색
 select * from customer where phone not like '%_4';
+
+-- <ORDER BY>
+-- order by 없음: pk 기준 오름차순 정렬
+select * from customer;
+
+select * from customer order by custname;
+
+select * from customer order by custname desc;
+
+-- where절과  order by 함께 사용 (단, 이 때 order by가 where보다 뒤에 위치해야함)
+-- addr이 똑같으면 그 다음 정렬 기준으로 custname 내림차순 정렬
+select * from customer where birth >= '2000-01-01' order by addr desc, custname desc;
+-- select * from customer order by addr desc where birth >= '2000-01-01'; - 순서오류
+
+-- <LIMIT>
+-- 행의 개수를 제한
+select * from customer where birth >= '2000-01-01' limit 2;
+select * from customer limit 3;
+
+-- < 집계 함수 >
+-- 계산하여 어떤 값을 리턴하는 "함수"
+-- group by 절과 함계 쓰이는 케이스가 많음
+
+-- 주문 테이블에서 총 판매 개수 검색
+select sum(amount) from orders;
+
+-- 주문 테이블에서 총 판매 개수 검색 + 의미있는 열이름으로 변경
+select sum(amount) as 'total_amount' from orders;
+
+-- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
+select sum(amount) as 'total_amount', 
+avg(amount) as 'avg_amount',
+ min(price) as 'min_price', max(price) as 'max_price' from orders;
+    
+-- 주문 테이블에서 총 주문 건수 (= 튜플 개수)
+select count(*) from orders;
+
+-- 주문 테이블에서 주문한 고객 수 (중복 없이)
+
+-- < GROUP BY >
+-- "~별로"
+
+-- 고객별로 주문한 주문 건수 구하기
+select custid, count(*) from orders group by custid;
+
+-- 고객별로 주문한 상품 총 수량 구하기
+select custid, sum(amount) from orders group by custid;
+
+-- 고객별로 주문한 총 주문액 구하기
+select custid, sum(price * amount) from orders group by custid;
+
+-- 상품별 판매 개수 구하기
+select prodname, sum(amount) from orders group by prodname;
+
+-- < HAVING >
+-- group by 절 이후 추가 조건
+
+-- 총 주문액이 10000원 이상인 고객에 대해서 고객별로 주문한 상품 총 수량 구하기
+select custid, sum(amount), sum(price * amount) from orders 
+	group by custid having sum(price * amount) >= 10000;
+
+-- having: 그룹에 대해서 필터링 ( group by와 함께 쓰임 ), group by 보다 뒤에 위치
+-- where: 각각의 행을 필터링, group by 보다 앞에 위치, 집계함수를 쓸 수는 있으나 having 처럼 자유롭게 쓰진 못함
+
+
+
+
+
+
+
