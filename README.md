@@ -21,4 +21,6 @@
   * 8.14(월) node.js의 동기처리, form 기초(get/post)
   * 8.16(수) ndoe.js form(post심화, form validation)
   * 8.18(금) node.js (ajax, axios, fetch)와 open api
-  * 8.20(월) node.js (checkValiad, multer - file업로드)
+  * 8.21(월) node.js (checkValiad, multer - file업로드)
+  * 8.23(수) mysql
+  * 8.25(금) mysql과 mvc 패턴
