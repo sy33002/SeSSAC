@@ -1,0 +1,23 @@
+
+const userAll = require('../models/User').users.split('\n');
+console.log(userAll.length);
+let userid = [];
+let userpw = [];
+let username = [];
+for (let i = 0; i< userAll.length; i++){
+    userid.push(userAll[i].split('//')[0]);
+    userpw.push(userAll[i].split('//')[1]);
+    username.push(userAll[i].split('//')[2]);
+}
+console.log(userid);
+console.log(userpw);
+console.log(username);
+
+
+exports.main = (req,res) => {
+    res.render('main');
+};
+
+exports.login = (req,res) => {
+    res.send(req.body);
+}

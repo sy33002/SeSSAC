@@ -27,11 +27,6 @@ exports.getCommentAll = () => {
           date: '2022-11-02',
           comment: '첫 댓글입니당ㅎㅎ',
         },
-        {
-            id: 5,
-            userid: 'apple',
-            date: '2022-11-03',
-            comment: '알리알리얄라숑'},
     ];
 };
 

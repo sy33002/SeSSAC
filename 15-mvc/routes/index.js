@@ -3,8 +3,8 @@
 // 이 모듈의 역할: 
 // 경로 선언과 관련된 내용 기술
 const express = require('express')
-const controller = require('../controller/Cmain');
 const router = express.Router();
+const controller = require('../controller/Cmain');
 
 router.get('/', controller.main);
 router.get('/comments', controller.comments);
@@ -48,13 +48,13 @@ router.get('/comment/:id', controller.comment);
 // 하기는 controller 없는 버전
 
 // GET localhost:PORT/
-// router.get('/', (req, res) => {
-//     res.render('index');
-// });
+router.get('/', (req, res) => {
+    res.render('index');
+});
     
-// router.get('/comments', (req, res) => {
-//     res.render('comments', { comments });
-// });
+router.get('/comments', (req, res) => {
+    res.render('comments', { comments });
+});
     
 // router.get('/comment/:id', (req,res) => {
 //     console.log(req.params);

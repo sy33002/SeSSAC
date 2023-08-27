@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC실습</title>
+      <!-- axios cdn -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>axios post 로그인</h1>
+    <form action="/login" name="login" method="post">
+      <span>아이디</span>
+      <input type="text" name="id">
+      <span>비밀번호</span>
+      <input type="text" name="passwd">
+      <button type="button" onclick="clickLogin()">로그인</button>
+    </form>
+    <div class="res"></div>
+</body>
+<script>
+
+const res = document.querySelector('.res');
+async function clickLogin() {
+    const form = document.forms['login'];
+    const user = {
+        id: form.id.value,
+        passwd: form.passwd.value, 
+    };
+    console.log(user);
+    try {
+        const response = await axios({
+            method: 'post',
+            url: '/login',
+            data: user,
+        });
+        const { id, passwd } = response.data;
+        console.log(id,passwd);
+        if (id == 'banana' && passwd == '4321') {
+            res.innerHTML = `<div style="color:blue">${id}님! 로그인에 성공하셨습니다!</div>`;
+        } else {
+            res.innerHTML = `<div style="color:red">로그인에 실패하셨습니다!</div>`;
+        }
+    } catch (error) {
+        res.innerHTML = `<div style="color:red">에러 발생</div>`;
+    }
+}
+</script>
+</html>
