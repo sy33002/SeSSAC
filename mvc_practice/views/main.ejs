@@ -19,31 +19,32 @@
     <div class="res"></div>
 </body>
 <script>
-
-const res = document.querySelector('.res');
+const resBox = document.querySelector('.res');
 async function clickLogin() {
     const form = document.forms['login'];
     const user = {
         id: form.id.value,
         passwd: form.passwd.value, 
     };
-    console.log(user);
     try {
         const response = await axios({
             method: 'post',
             url: '/login',
             data: user,
         });
-        const { id, passwd } = response.data;
-        console.log(id,passwd);
-        if (id == 'banana' && passwd == '4321') {
-            res.innerHTML = `<div style="color:blue">${id}님! 로그인에 성공하셨습니다!</div>`;
-        } else {
-            res.innerHTML = `<div style="color:red">로그인에 실패하셨습니다!</div>`;
-        }
+        const resData = response.data;
+
+        for (let i = 0; i < resData.userid.length; i++){
+            if (user.id == resData.userid[i] && user.passwd == resData.userpw[i]){
+                resBox.innerHTML = `<div style="color:blue">${resData.username[i]}님! 로그인에 성공하셨습니다!</div>`;
+                break ;
+            } else {
+            resBox.innerHTML = `<div style="color:red">로그인에 실패하셨습니다!</div>`;
+            }
+        };
     } catch (error) {
-        res.innerHTML = `<div style="color:red">에러 발생</div>`;
-    }
+        resBox.innerHTML = `<div style="color:red">에러 발생</div>`;
+        }   
 }
 </script>
 </html>
