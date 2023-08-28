@@ -6,5 +6,5 @@ exports.main = (req,res) => {
 };
 
 exports.visitor = (req,res) => {
-    res.render('visitor', { data: Visitor.getVisitors()});
+    res.render('visitor', { data: Visitor.getVisitors() });
 };
