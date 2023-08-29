@@ -24,3 +24,4 @@
   * 8.21(월) node.js (checkValiad, multer - file업로드)
   * 8.23(수) mysql
   * 8.25(금) mysql과 mvc 패턴
+  * 8.28(월) mvc패턴에 DB연결하기
