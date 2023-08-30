@@ -20,11 +20,22 @@ exports.postVisitor = (req, res) => {
 };
 
 exports.deleteVisitor = (req, res) => {
-  console.log(req.body); // { id: xx }
   const { id } = req.body;
-
   Visitor.deleteVisitor(id, (result) => {
-    console.log('controller >>', result); // true
     res.send(result); // res.send(true)
+  });
+};
+
+exports.getVisitor = (req, res) => {
+    const{id} = req.params;
+    Visitor.getVisitor(id, (result) => {
+        res.send(result);
+    });
+};
+
+exports.updateVisitor = (req, res) => {
+  console.log(req.body);
+  Visitor.updateVisitor(req.body, (result) => {
+    res.send({ isUpdated: true });
   });
 };
