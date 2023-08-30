@@ -13,8 +13,8 @@ exports.getVisitors = (callback) => {
   conn.query('select * from visitor', (err, rows) =>{ 
   if (err) {
     throw err;
-  }
-  callback(rows);
+    }
+    callback(rows);
   });
 };
 
