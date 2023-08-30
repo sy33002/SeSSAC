@@ -41,13 +41,14 @@ exports.loginUser = (data, callback) => {
 };
 
 exports.findUser = (data, callback) => {
+    console.log('data = ', data.id);
     conn.query(
         `select * from user where userid='${data.id}'`,
         (err,rows) => {
             if (err) {
                 throw err;
             }
-            callback(rows);
+            callback(rows[0]);
         });
     }
 

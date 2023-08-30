@@ -27,13 +27,13 @@ exports.loginUser = (req, res) => {
 };
 
 exports.profile = (req, res) => {
-    console.log(req.body);
+    console.log('req.body =', req.body);
     const userId = {
         id: req.body.userid,
     };
     User.findUser(userId, (result) =>{
-        const {userid, name, pw} = result;
-        res.send({userid, name, pw});
+        const { userid, name, pw } = result;
+        res.render('profile',{ userid, name, pw });
     });
 };
 
