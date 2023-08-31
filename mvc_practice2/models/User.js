@@ -1,18 +1,18 @@
 
 const User = (Sequelize, DataTypes) => {
     const model = Sequelize.define('visitor', {
-        id: {
-            type: DataTypes.INTEGER,
+        userid: {
+            type: DataTypes.STRING(20),
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         name : {
-            type: DataTypes.STRING(10),
+            type: DataTypes.STRING(20),
             allowNull: false,
         },
-        comment: {
-            type: DataTypes.TEXT('medium'),
+        pw: {
+            type: DataTypes.STRING(20),
         }
     }, {
         tableName: 'user', // 실제 db 테이블명
@@ -22,4 +22,4 @@ const User = (Sequelize, DataTypes) => {
     return model;
 };
 
-module.exports = Visitor;
+module.exports = User;
