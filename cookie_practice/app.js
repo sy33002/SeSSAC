@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
   // *다음과 같이 기능 구현하였는데, 굳이 이렇게 하지 않아도 됩니다.
   // 모달 체크박스 체크시 -> GET / ; undefined
   // 모달 체크박스 미체크시 -> GET / ; hide
-//   console.log('req.cookies.popup >> ', req.cookies.popup);
-    const popup = req.cookies.popup || 'hide';
+   console.log('req.cookies.popup >> ', req.cookies.popup);
+    const popup = req.cookies.popup;
   // TODO: index.ejs render할 때 두 번째 인자로 popup key 로 요청의 쿠키값 보내기
   res.render('index', { popup });
 });
