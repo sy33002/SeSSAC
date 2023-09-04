@@ -1,4 +1,4 @@
-
+// TODO: User 모델 정의
 const User = (Sequelize, DataTypes) => {
     const model = Sequelize.define('visitor', {
         userid: {
@@ -12,7 +12,7 @@ const User = (Sequelize, DataTypes) => {
             allowNull: false,
         },
         pw: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(20),
         }
     }, {
         tableName: 'user', // 실제 db 테이블명
