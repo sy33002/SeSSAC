@@ -1,7 +1,12 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
-const PORT = 8080;
+
+const dotenv = require('dotenv');
+dotenv.config() // .env파일의 환경 변수를 읽어옴
+const PORT = process.env.PORT;
+const MySessionSecretKey = process.env.MySessionSecretKey;
+
 
 app.set('view engine', 'ejs');
 app.use(session({

@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
-const PORT = 8080;
+
+const dotenv = require('dotenv');
+dotenv.config() // .env파일의 환경 변수를 읽어옴
+const PORT = process.env.PORT;
+const COOKIE_SECRET_KEY = process.env.COOKIE_SECRET_KEY;
 
 app.set('view engine', 'ejs');
 
 // 미들웨어 등록
 // app.use(cookieParser()); // 일반 쿠키
-const COOKIE_SECRET_KEY = 'this is key';
 app.use(cookieParser(COOKIE_SECRET_KEY)); // 암호 쿠키
 const myCookieConf = {
     httpOnly: true,
