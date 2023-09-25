@@ -26,3 +26,4 @@
   * 8.25(금) mysql과 mvc 패턴
   * 8.28(월) mvc패턴에 DB연결하기
   * 8.30(수) mvc패턴에 sequealize 사용 refactoring
+  * 9.25(월) react: 개념, class, props 등
