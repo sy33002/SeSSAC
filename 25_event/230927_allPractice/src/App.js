@@ -1,29 +1,37 @@
-import {useState} from 'react';
-import Input from "./Input";
-import Result from "./Result";
-import Select from "./Select";
+import { useState } from 'react';
+import Input from './Input';
+import Result from './Result';
+import Select from './Select';
 
 function App() {
-  const [value, setValue] = useState('');
-  const [backColor, setBackcolor] = useState('black');
-  const [strColor, setStrcolor] = useState('white');
-  const [fruit, setFruit] = useState('apple');
+  // 상태
+  const [data, setData] = useState({
+    fruit: 'apple',
+    background: 'gold',
+    color: 'black',
+    content: 'text',
+  });
+  // const [fruit, setFruit] = useState("apple");
+  // const [background, setBackground] = useState("black");
+  // const [color, setColor] = useState("white");
+  // const [content, setContent] = useState("text");
+
   return (
     <>
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
       >
-        <Select setFruit={setFruit} setBackcolor={setBackcolor} setStrcolor={setStrcolor} />
+        <Select setData={setData} />
       </div>
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
       >
-        <Input setValue={setValue}/>
+        <Input setData={setData} />
       </div>
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
       >
-        <Result value={value} fruit={fruit} backColor={backColor} strColor={strColor}/>
+        <Result data={data} />
       </div>
     </>
   );

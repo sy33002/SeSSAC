@@ -137,3 +137,28 @@ const me = {name: 'sean', gender: 'f', hobby: 'movie'};
 for (let k in me){
     console.log(k, me[k]); // 대괄호 표기법으로만 (점표기법x) value접근 가능
 }
+
+///////////////////////////////////////
+// reduce()
+// : 배열의 각 요소에 대해서 주어진 리듀서(reducer) 함수를 실행하고, 하나의 결과값 반환
+
+// reduce((acc, cur) =>{ ... }, initValue)
+// - acc: 누적되는 값
+// - cur: 현재 요소
+
+const numbers2 = [1, 2, 3, 4, 5];
+const initialValue = 100;
+const result2 = numbers2.reduce((accumulator, currentValue) =>{
+    return accumulator + currentValue
+}, initialValue);
+console.log('result2 >>', result2); // 115
+
+////////////////////////////////////////////
+// 여러 배열을 합치는 방법
+// 1. concat
+const arr_1 = [1, 2, 3];
+const arr_2 = [3, 4, 5];
+console.log(arr_1.concat(arr_2)); // [1,2,3,3,4,5]
+
+// 2. ... spread
+console.log([...arr_1, ...arr_2]); // [1,2,3,3,4,5]

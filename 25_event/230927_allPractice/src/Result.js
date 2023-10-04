@@ -1,18 +1,20 @@
-function Result({setValue, setFruit, setBackcolor, setStrcolor}) {
-  console.log("setFruit >>", setFruit);
+function Result(props) {
+  console.log(props);
+  const { fruit, background, color, content } = props.data;
+
   return (
-    <div style={{ display: "block" }}>
-      <img src={`${setFruit}.png`} width={100} height={100} />
+    <div style={{ display: 'block' }}>
+      <img src={`${fruit}.png`} width={100} height={100} />
 
       <div
         style={{
-          padding: "10px",
-          marginTop: "10px",
-          backgroundColor: "black",
-          color: "white",
+          padding: '10px',
+          marginTop: '10px',
+          backgroundColor: background,
+          color: color,
         }}
       >
-        글자글자
+        {content}
       </div>
     </div>
   );
