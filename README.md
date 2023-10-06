@@ -28,3 +28,5 @@
   * 8.30(수) mvc패턴에 sequealize 사용 refactoring
   * 9.25(월) react: 개념, class, props 등
   * 9.27(수) react: state, 합성이벤트 등
+  * 10.04(수) react: map, filter, ref 배우기
+  * 10.05(금) react: life-cycle 대표 함수, hook, custom hook 배우기
