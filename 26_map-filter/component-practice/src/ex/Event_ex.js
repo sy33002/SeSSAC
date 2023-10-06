@@ -25,25 +25,29 @@ export default function Event_ex() {
       setInputEmail('');
     }
   };
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      return addUser
-    }
-  }
+  
   return (
     <div>
       <input 
         type="text" 
-        placeholder='알파벳 입력' 
-        value={inputname} 
+        placeholder='이름' 
+        value={inputName} 
         onChange={(e) => {
-          setInputAlpha(e.target.value);
+          setInputName(e.target.value.name);
+      }} 
+      />
+      <input 
+        type="text" 
+        placeholder='이메일' 
+        value={inputEmail} 
+        onChange={(e) => {
+          setInputName(e.target.value.email);
       }} 
       />
       <button onClick= {addUser}>ADD</button>
       <ol>
         {user.map((value) => {
-          return  <li key={value.id} onDoubleClick={() => deleteAlpha(value.id)} onKeyDown={handleKeyDown}>{value.alpha}</li>
+          return  <li key={value.id}>{`이름: ${value.name}, 이메일: ${value.email}`}</li>
         })}
       </ol>
     </div>
