@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import PostItem from './PostItem'
 import axios from 'axios';
+import './PostItem.scss';
 
 // 부모 컴포넌트
 export default function PostList() {

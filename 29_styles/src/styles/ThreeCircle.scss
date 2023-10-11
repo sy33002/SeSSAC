@@ -1,0 +1,74 @@
+@mixin box($size, $color, $angle) {
+    width: $size;
+    height: $size;
+    background-color: $color;
+    border-radius: 50%;
+    animation: clock#{$angle} 4s linear infinite;
+};
+
+
+.pinkCircle {
+    @include box(50px, pink, 10);
+}
+
+.yellowCircle {
+    @include box(50px, yellow, 20);
+}
+
+.greenCircle {
+    @include box(50px, green, 30);
+}
+
+@keyframes clock10 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(150px, 0px);
+    }
+    50% {
+        transform: translate(150px, 150px);
+    }
+    75% {
+        transform: translate(0px, 150px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes clock20 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(150px, 0px);
+    }
+    50% {
+        transform: translate(150px, 150px);
+    }
+    75% {
+        transform: translate(0px, 150px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes clock30 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(150px, 0px);
+    }
+    50% {
+        transform: translate(150px, 150px);
+    }
+    75% {
+        transform: translate(0px, 150px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}

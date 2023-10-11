@@ -1,0 +1,54 @@
+@mixin box($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+};
+
+@mixin margin($top, $left){
+    margin-top: $top;
+    margin-left: $left;
+};
+
+.Bug {
+  @include box(100px);
+  .head {
+    background-color: rgb(110, 143, 221);
+    position: relative;
+    @include box(100px);
+    .eye-white {
+      background-color: white;
+      @include box(50px);
+    }
+    .eye-black {
+      background-color: black;
+      z-index: 20;
+      @include box(25px);
+      position: absolute;
+      @include margin(10px,0px )
+    }
+  }
+  .body1 {
+    background-color: rgb(172, 189, 237);
+    position: relative;
+    @include box(100px);
+    @include margin(-10px,20px)
+  }
+  .body2 {
+    background-color: rgb(110, 132, 190);
+    position: relative;
+    @include box(100px);
+    @include margin(-20px,40px)
+  }  
+  .body3 {
+    background-color: rgb(27, 49, 111);
+    position: relative;
+    @include box(100px);
+    @include margin(-50px,100px)
+  }  
+  .body4 {
+    background-color: rgb(14, 73, 235);
+    position: relative;
+    @include box(100px);
+    @include margin(-60px,140px)
+  }
+}
