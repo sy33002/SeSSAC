@@ -1,0 +1,8 @@
+// js 최신 문법 : optional chaining (옵셔널 체이닝)
+const user = {}
+const user2 = {name: 'sean'}
+console.log(user)
+console.log(user && user.name)
+
+console.log(user?.name)
+console.log(user2?.name)

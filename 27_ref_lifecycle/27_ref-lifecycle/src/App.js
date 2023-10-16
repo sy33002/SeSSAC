@@ -4,7 +4,7 @@ import RefSample3 from "./RefSample3";
 import RefSample4 from "./RefSample4";
 import LifeCycleFunc from "./LifeCycleFunc";
 import LifeCycleClass from "./LifeCycleClass";
-import PostList from "../PostList";
+// import PostList from "../PostList";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <hr />
       <LifeCycleClass />
       <hr />
-      <PostList />
+      {/* <PostList /> */}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './PostItem.scss';
 
 // 자식 컴포넌트

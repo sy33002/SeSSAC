@@ -21,9 +21,9 @@ export default function LifeCycleFuncChild({number}) {
   // });
 
   // input 상태가 업데이트될 때 실행 (마운트가 될 때도 찍힘)
-  // useEffect(() => {
-  //   console.log('input 상태가 변경됨에 따라 컴포넌트 업데이트');
-  // }, [input]); // 의존성은 input에 있음
+  useEffect(() => {
+    console.log('input 상태가 변경됨에 따라 컴포넌트 업데이트');
+  }, [input]); // 의존성은 input에 있음
 
   return (
   <div style={{backgroundColor: 'gold'}}>
