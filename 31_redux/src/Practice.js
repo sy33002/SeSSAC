@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 
 
-const deposit = () => ({type: 'DEPOSIT'});
-const Withdrawal = () => ({type: 'WITHDRAWAL'});
+const Deposit = (num) => ({type: 'DEPOSIT', payload: num});
+const Withdrawal = (num) => ({type: 'WITHDRAWAL', payload: num});
 
 export default function Practice() {
   const [ inputNum, setInputNum ] = useState('');
   const dispatch = useDispatch();
-    const money = useSelector((state) => state.money.money);
+  const money = useSelector((state) => state.money.money);
     return (
         <div>
           <h1>React Redux</h1>
@@ -17,8 +17,8 @@ export default function Practice() {
         <input type='number' placeholder='금액을 입력하세요'
         onChange={(e) => (setInputNum(e.target.value))}
         value={inputNum}></input> 
-        <button onClick={dispatch(deposit(parseInt(inputNum)))}>입금</button>
-        <button onClick={dispatch(Withdrawal(parseInt(inputNum)))}>출금</button>
+        <button onClick={() => {dispatch(Deposit(parseInt(inputNum)))}}>입금</button>
+        <button onClick={() => {dispatch(Withdrawal(parseInt(inputNum)))}}>출금</button>
         </div>
       );
 }
