@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>socket.io 채팅</title>
+    <!-- cdn -->
+    <script src="/socket.io/socket.io.js"></script>
+    <style> 
+        .chat-box {
+            position: relative;
+            background-color: rgb(249, 250, 251);
+            width: 80%;
+        }
+        .chat-list {
+            border: 2px solid navy
+            position: relative;
+            border-radius: 10px;
+            display: flex;
+            height: 500px;
+            flex-direction: column;
+            overflow-y: scroll;
+        }
+
+        .my-chat{
+            justify-content: end;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .my-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: relative;
+        }
+        .my-chat-msg {
+            background-color: rgb(165, 239, 206);
+            word-wrap: break-word;
+            border-radius: 10px;
+            margin-right: 10px;
+            max-width: 70%;
+            margin: 5px;
+            padding: 5px;
+            overflow-wrap: break-word;
+        }
+        .other-chat{
+            width: max-content;
+            overflow-wrap: break-word;
+            max-width: 70%;
+            margin: 5px;
+            padding: 5px;
+            margin-right: auto;
+            display: flex;
+            text-align: center;
+        }
+        .other-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .other-chat-msg {
+            background-color: rgb(244, 244, 175);
+            word-wrap: break-word;
+            border-radius: 10px;
+            margin-right: 10px;
+            max-width: 70%;
+            margin: 5px;
+            padding: 5px;
+        }
+        .input-msg-container {
+            background-color: rgb(249, 250, 251);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            z-index: 20;
+        }
+        .input-msg {
+            width: 80%;
+            margin-right: 3px;
+            border: 1px solid gray;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .entrance {
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        }
+        .d-none {
+            display: none;
+        }
+
+        .secret-chat div{
+            background-color: pink;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>My Chat</h1>
+
+    <!-- [실습1] 각 버튼 누를 때 마다 서버로 메세지 보내기-->
+    <!-- <button onclick="sayHello()">Hello</button>
+    <button onclick="sayStudy()">Study</button>
+    <button onclick="sayBye()">Bye</button>
+    <p id="form-server"></p> -->
+
+     
+    <!-- [실습 3-2] -->
+    <div class="entry-box">
+        <input
+          type="text"
+          id="nickname"
+          placeholder="닉네임"
+          autofocus
+          onkeypress="if(window.event.keyCode==13){join()}"
+        />
+        <button type="button" onclick="join();">입장</button>
+    </div><br />
+
+      
+    <!-- [실습 2] 채팅 UI -->
+    <main class="chat-box d-none">
+        <div class="chat-list">
+            <!-- 채팅 입력창 -->
+            <div class="input-msg-container">
+                <input type="text" class="input-msg"></input>
+                <button style="border: none; background-color: pink; border-radius: 3px;"
+                onclick="send()">전송</button>
+            </div>
+        </div>
+        <!-- 메세지 전송 영역 -->
+    </main>
+    <div class="chat-box2 d-none">
+    <select id="nick-list"></select
+      >에게
+      <input
+        type="text"
+        id="message"
+        onkeypress="if(window.event.keyCode==13){send()}"
+      />
+      <button type="button" onclick="send();">전송</button>
+    </div>
+
+    <script>
+        let socket = io.connect(); // 소켓 사용을 위한 객체 생성
+        let myNick; // 내 닉네임
+
+        socket.on('connect', () => {
+            console.log('클라이언트 연결 완료 :: ', socket.id);
+        });
+
+        // [실습 1]
+        // function sayHello() {
+        //     socket.emit('hello', { who: 'client', msg:'hello' });
+        // }
+        // socket.on('helloKr', (data) => {
+        //     document.querySelector('#form-server').textContent = `${data.who} : ${data.msg}`;
+        // });
+        // function sayStudy() {
+        //     socket.emit('study', { who: 'client', msg: 'study'});
+        // };
+        // socket.on('studyKr', (data) => {
+        //     document.querySelector('#form-server').textContent = `${data.who} : ${data.msg}`
+        // });
+        // function sayBye() {
+        //     socket.emit('bye', { who: 'client', msg: 'bye'});
+        // };
+        // socket.on('byeKr', (data) => {
+        //     document.querySelector('#form-server').textContent = `${data.who} : ${data.msg}`
+        // });
+
+        // [실습 3]
+        socket.on('notice', (msg) => {
+            document.querySelector('.chat-list').insertAdjacentHTML('beforeend', 
+            `<div style="justify-items: center; text-align: center; text-color: gray; font-size: 10px;">${msg}</div>`)
+        });
+
+        // [실습 3-2] 채팅창 입장 문구 socket.id -> nickname
+        function join() {
+            socket.emit('setNick', document.querySelector('#nickname').value);
+        }
+        // 닉네임 중복: alert띄우기
+        socket.on('error', (data) => {
+            alert(data);
+        });
+
+        // 입장 성공: 닉네입 입력창 비활성화
+        socket.on('entrySuccess', (nick) => {
+            myNick = nick; // 내 닉네임 저장
+            document.querySelector('#nickname').disabled = true;
+            document.querySelector('.entry-box > button').disabled = true;
+            document.querySelector('.chat-box').classList.remove('d-none');// 채팅창 보이기
+            document.querySelector('.chat-box2').classList.remove('d-none');// 채팅창 보이기
+        })
+        // 유저 목록 업데이트 (select 박스의 option 태그 개수 변경)
+        socket.on('updateNicks', (nickArray) => {
+            let options = `<option value="all">전체</option>`;
+
+            // option 태그의 value 속성 값은 socket.id, option 태그의 컨텐츠는 nick 값
+            for (const key in nickArray) {
+                if (nickArray[key] != myNick){
+                    options+= `<option value=${key}>${nickArray[key]}</option>`;
+                }
+            }
+            document.querySelector('#nick-list').innerHTML = options;
+        })
+
+        // [실습 4] 채팅창 메세지 전송 Step 1
+        // "send" 이벤트 전송 { 닉네임, 입력창 내용 }
+        function send() {
+            socket.emit('send', {
+                dm: document.querySelector('#nick-list').value,
+                nick: myNick, 
+                msg: document.querySelector('.input-msg').value});
+            document.querySelector('.input-msg').value = '';
+        }
+
+        // newMessage 이벤트를 받아서 { 닉네임, 입력창 내용 }
+        // 내가 보낸 메세지: 오른쪽
+        // 다른 사람이 보낸 메세지: 왼쪽
+        socket.on('sendMsg', (data) => {
+            console.log(data);
+            let chatList = document.querySelector('.chat-list');
+            let div = document.createElement('div'); // .my-chat or .other-chat
+            let divChat = document.createElement('div'); // 가장 안쪽 div
+            if (!data.dm) {
+                console.log("data>>", data);
+                if (data.nick === myNick){
+                    document.querySelector('.chat-list').insertAdjacentHTML('beforeend',
+                        `<div class="my-chat">
+                        <div class="my-chat-msg">${data.msg}</div>
+                        <div class="my-pic">${data.nick}</div>
+                    </div>`);
+                } else {
+                    document.querySelector('.chat-list').insertAdjacentHTML('beforeend',
+                        `<div class="other-chat">
+                            <div class="other-pic">${data.nick}</div>
+                        <div class="other-chat-msg"> ${data.msg}</div>
+                        </div>`);
+                }
+            }
+            else {
+                document.querySelector('.chat-list').insertAdjacentHTML('beforeend', 
+                `<div>${data.dm} ${data.nick} : ${data.msg}</div>`)
+                }
+            })
+                // 메세지가 많아져서 스크롤이 생기더라도 하단 고정
+                chatList.scrollTop = chatList.scrollHeight;
+    </script>
+  </body>
+</html>

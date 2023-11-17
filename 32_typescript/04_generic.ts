@@ -76,4 +76,28 @@ const galaxy23 : Phone<galaxyOption> = {
 }
 console.log(galaxy23);
 
+// practice
+function arrElement<T>(arr: T[], num: number) {
+    if (num < arr.length) {
+        return arr[num];
+    }
+    else 
+        return false;
+}
+console.log(arrElement<string>(["a"], 0));
 
+function sumsum(x: number, y: number) {
+    console.log(x + y);
+}
+sumsum(5, 11);
+
+function sumEvery(x: number, y:number, ...numbers:number[]): number {
+    let sum = x + y;
+
+    for (const num of numbers){
+        sum += num;
+    }
+    return sum;
+}
+
+console.log(sumEvery(1,2,3,4));
