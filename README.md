@@ -31,3 +31,8 @@
   * 10.04(수) react: map, filter, ref 배우기
   * 10.05(금) react: life-cycle 대표 함수, hook, custom hook 배우기
   * 10.11(수) react: sass와 css style 배우기
+  * 10.13(금) react: 미니 프로젝트 실행
+  * 10.16(월) react: router, hook form 배우기
+  * 10.18(수) react: redux 배우기, typescript 기초(1)
+  * 10.20(금) typescript 기초(2)
+  * 10. 23(월) ~ 11.10(금) : 2차 프로젝트
